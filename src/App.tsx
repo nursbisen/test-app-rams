@@ -54,7 +54,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <img src={`./frames/${currentFrame}.jpg`}/>
+      <img src={`src/assets/frames/${currentFrame}.jpg`} />
       <div className="buttonsWrapper">
         <button type="button" onClick={rewindToPrevView}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="chevron" viewBox="0 0 16 16">
