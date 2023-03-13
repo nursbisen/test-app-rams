@@ -66,6 +66,7 @@ const useContainer = () => {
 
     const getSpinDirection = () => {
       if (FRAMES_TO_VIEW.includes(currentFrame)) return;
+
       const closestPrevFrame = Math.max(...FRAMES_TO_VIEW.filter((frame) => frame < currentFrame));
       const closestNextFrame = Math.min(...FRAMES_TO_VIEW.filter((frame) => frame > currentFrame));
 

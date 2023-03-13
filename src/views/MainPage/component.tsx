@@ -33,9 +33,9 @@ const MainPage = () => {
         onMouseUp={handleMouseUp}
         onMouseDown={handleMouseDown}
         onMouseMove={isDragged ? handleMouseMove : undefined}
+        style={{ cursor: isDragged ? 'grabbing' : 'grab' }}
       >
         <img
-          style={{ cursor: isDragged ? 'grabbing' : 'grab' }}
           draggable={false}
           src={`frames/${currentFrame}.jpg`}
         />
@@ -56,7 +56,11 @@ const MainPage = () => {
       </button>
       <div style={{ display: 'none' }}>
         {ALL_FRAMES_ARRAY.map((frameNum) => (
-          <img key={frameNum} src={`frames/${frameNum}.jpg`} />
+          <img
+            key={frameNum}
+            src={`frames/${frameNum}.jpg`}
+            draggable={false}
+          />
         ))}
       </div>
     </div>
