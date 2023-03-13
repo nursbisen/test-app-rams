@@ -1,39 +1,40 @@
-.app {
+.imgWrapper {
   width: 100%;
   height: 100vh;
   overflow: hidden;
   position: relative;
 }
 
-img {
+.imgWrapper img {
   width: 100%;
   height: auto;
 }
 
 @media (max-width: 1350px) {
-  .app {
+  .imgWrapper {
     display: flex;
     justify-content: center;
   }
 
-  img {
+  .imgWrapper img {
     width: auto;
   }
 }
 
-.buttonsWrapper {
-  position: absolute;
+.rightButton {
+  position: fixed;
   top: 40%;
-  z-index: 10;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  gap: 700px;
-  align-items: center;
+  right: 10%;
+}
+
+.leftButton {
+  position: fixed;
+  top: 40%;
+  left: 10%;
 }
 
 button {
-  background-color: rgb(113,206,126);
+  background-color: #7a9049;
   color: white;
   transition: .2s;
   cursor: pointer;
@@ -45,10 +46,10 @@ button {
 }
 
 button:hover {
-  background-color: rgb(202,248,128);
+  background-color: #9cbe51;
 }
 
-.chevron { 
+.chevronIcon { 
   width: 40px;
   height: 40px;
 }
@@ -63,7 +64,7 @@ button:hover {
     height: 60px;
   }
 
-  .chevron {
+  .chevronIcon {
     width: 20px;
     height: 20px;
   }
