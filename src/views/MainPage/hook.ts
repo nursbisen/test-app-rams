@@ -65,6 +65,7 @@ const useContainer = () => {
     setDragged(false);
 
     const getSpinDirection = () => {
+      if (FRAMES_TO_VIEW.includes(currentFrame)) return;
       const closestPrevFrame = Math.max(...FRAMES_TO_VIEW.filter((frame) => frame < currentFrame));
       const closestNextFrame = Math.min(...FRAMES_TO_VIEW.filter((frame) => frame > currentFrame));
 
@@ -79,10 +80,13 @@ const useContainer = () => {
         distanceToNextFrame = (Math.min(...FRAMES_TO_VIEW) - FIRST_FRAME) + (LAST_FRAME - currentFrame);
       }
 
-      return distanceToPrevFrame > distanceToNextFrame ? 'next' : 'prev';
+      return distanceToPrevFrame < distanceToNextFrame ? 'prev' : 'next';
     };
 
-    getSpinDirection() === 'next' ? spinToNextView() : spinToPrevView();
+    const spinDirection = getSpinDirection();
+
+    if (spinDirection === 'prev') spinToPrevView();
+    if (spinDirection === 'next') spinToNextView();
   };
   
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
